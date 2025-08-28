@@ -13,6 +13,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
 
 / {
     combos {
@@ -40,8 +41,9 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             flavor = "tap-preferred";
-            hold-while-undecided;
             hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 26 27 28 29 30 31 35 36 37>;
+            require-prior-idle-ms = <100>;
+            quick-tap-ms = <170>;
         };
 
         HomerowR: HomerowR {
@@ -52,8 +54,9 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             flavor = "tap-preferred";
-            hold-while-undecided;
             hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 25 32 33 34>;
+            quick-tap-ms = <170>;
+            require-prior-idle-ms = <100>;
         };
 
         TapKHoldL: TapKHoldL {
@@ -64,6 +67,19 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
+
+        Mouse: Mouse {
+            compatible = "zmk,behavior-mouse-key-press";
+            label = "MOUSE";
+            #binding-cells = <1>;
+        };
+
+        Scroll: Scroll {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "SCROLL";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+        };
     };
 
     keymap {
@@ -71,28 +87,28 @@
 
         base {
             bindings = <
-               &kp Q  &kp W                 &kp E                     &kp R                   &kp T                 &kp Y               &kp U                    &kp I                      &kp O                  &kp P
-               &kp A  &HomerowL LEFT_ALT S  &HomerowL LEFT_CONTROL D  &HomerowL LEFT_SHIFT F  &kp G                 &kp H               &HomerowR RIGHT_SHIFT J  &HomerowR RIGHT_CONTROL K  &HomerowR RIGHT_ALT L  &kp SEMI
-&kp BACKSPACE  &kp Z  &kp X                 &kp C                     &kp V                   &kp B                 &kp N               &kp M                    &kp COMMA                  &kp DOT                &kp FSLH  &kp APOS
-                                            &kp ESCAPE                &TapKHoldL 2 TAB        &TapKHoldL 1 SPACE    &TapKHoldL 1 SPACE  &TapKHoldL 2 ENTER       &kp ESCAPE
+               &kp Q  &kp W  &kp E                     &kp R                   &kp T                 &kp Y               &kp U                    &kp I                      &kp O    &kp P
+               &kp A  &kp S  &HomerowL LEFT_CONTROL D  &HomerowL LEFT_SHIFT F  &kp G                 &kp H               &HomerowR RIGHT_SHIFT J  &HomerowR RIGHT_CONTROL K  &kp L    &kp SEMI
+&kp BACKSPACE  &kp Z  &kp X  &kp C                     &kp V                   &kp B                 &kp N               &kp M                    &kp COMMA                  &kp DOT  &kp FSLH  &kp APOS
+                             &kp ESCAPE                &TapKHoldL 2 TAB        &TapKHoldL 1 SPACE    &TapKHoldL 1 SPACE  &TapKHoldL 2 ENTER       &kp RA(TAB)
             >;
         };
 
         nav_num {
             bindings = <
-                   &kp LA(BACKSPACE)   &kp BACKSPACE  &kp UP     &kp DELETE     &kp LA(DELETE)        &kp N1      &kp N2           &kp N3       &kp N4    &kp N5
-                   &kp LA(LEFT_ARROW)  &kp LEFT       &kp DOWN   &kp RIGHT      &kp LA(RIGHT)         &kp N6      &kp N7           &kp N8       &kp N9    &kp N0
-&kp LG(BACKSPACE)  &kp LG(UP_ARROW)    &kp LG(LEFT)   &kp ENTER  &kp LG(RIGHT)  &kp LG(DOWN_ARROW)    &kp PERIOD  &kp PLUS         &kp MINUS    &kp STAR  &kp FSLH  &kp CARET
-                                                      &trans     &trans         &trans                &kp EQUAL   &kp RIGHT_SHIFT  &kp PERCENT
+                   &kp N1            &kp N2     &kp N3     &kp N4     &kp N5       &kp LEFT_BRACKET   &kp HOME         &kp UP_ARROW  &kp END    &kp N5
+                   &kp N6            &kp N7     &kp N8     &kp N9     &kp N0       &kp RIGHT_BRACKET  &kp LEFT_ARROW   &kp DOWN      &kp RIGHT  &kp N0
+&kp LG(BACKSPACE)  &kp LG(UP_ARROW)  &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)    &kp LC(Z)          &kp RC(Y)        &kp EQUAL     &kp STAR   &kp FSLH  &kp CARET
+                                                &trans     &trans     &trans       &kp EQUAL          &kp RIGHT_SHIFT  &kp PERCENT
             >;
         };
 
         sym_func {
             bindings = <
-           &kp ESC        &kp LEFT_BRACE        &kp RIGHT_BRACE        &none             &none             &kp F1   &kp F2           &kp F3   &kp F4   &kp F5
-           &kp TAB        &kp LBKT              &kp RBKT               &kp ENTER         &kp BSLH          &kp F6   &kp F7           &kp F8   &kp F9   &kp F10
-&kp GRAVE  &kp LESS_THAN  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp GREATER_THAN  &kp UNDERSCORE    &kp F11  &kp F12          &kp F13  &kp F14  &kp F15  &kp F16
-                                                &trans                 &trans            &trans            &none    &kp RIGHT_SHIFT  &none
+                  &kp ESC        &none           &mmv MOVE_UP    &none            &none     &none  &none        &none        &none  &kp ESCAPE
+                  &kp PAGE_UP    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none     &none  &Mouse LCLK  &Mouse RCLK  &none  &msc SCRL_UP
+&kp LEFT_CONTROL  &kp PAGE_DOWN  &none           &none           &none            &none     &none  &none        &none        &none  &msc SCRL_DOWN  &kp RIGHT_CONTROL
+                                                 &trans          &trans           &trans    &none  &none        &none
             >;
         };
 

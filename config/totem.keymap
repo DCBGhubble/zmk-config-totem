@@ -105,10 +105,10 @@
 
         sym_func {
             bindings = <
-        &kp ESC        &none              &mmv MOVE_UP    &none             &none        &none      &none     &none     &none  &kp ESCAPE
-        &kp PAGE_UP    &mmv MOVE_X(-200)  &mmv MOVE_DOWN  &mmv MOVE_X(200)  &none        &none      &mkp MB1  &mkp MB2  &none  &msc SCRL_UP
-&tog 2  &kp PAGE_DOWN  &none              &none           &none             &none        &none      &none     &none     &none  &msc SCRL_DOWN  &kp RCTRL
-                                          &trans          &trans            &kp LCTRL    &kp RCTRL  &none     &none
+        &kp ESC        &none           &mmv MOVE_UP    &none            &none        &none      &none     &none     &none  &kp ESCAPE
+        &kp PAGE_UP    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none        &none      &mkp MB1  &mkp MB2  &none  &msc SCRL_UP
+&tog 2  &kp PAGE_DOWN  &none           &none           &none            &none        &none      &none     &none     &none  &msc SCRL_DOWN  &kp RCTRL
+                                       &trans          &trans           &kp LCTRL    &kp RCTRL  &none     &none
             >;
         };
 

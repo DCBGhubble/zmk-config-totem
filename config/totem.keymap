@@ -42,6 +42,11 @@
             key-positions = <6 7 8>;
             layers = <0>;
         };
+
+        bluetoothclear {
+            bindings = <&bt BT_CLR>;
+            key-positions = <0 1 2 3 4>;
+        };
     };
 
     behaviors {

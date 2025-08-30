@@ -108,9 +108,9 @@
 
         base {
             bindings = <
-           &kp Q  &kp W  &kp E                     &kp R                   &kp T                 &kp Y               &kp U                    &kp I                      &kp O    &kp P
-           &kp A  &kp S  &HomerowL LEFT_CONTROL D  &HomerowL LEFT_SHIFT F  &kp G                 &kp H               &HomerowR RIGHT_SHIFT J  &HomerowR RIGHT_CONTROL K  &kp L    &kp SEMI
-&kp MINUS  &kp Z  &kp X  &kp C                     &kp V                   &kp B                 &kp N               &kp M                    &kp COMMA                  &kp DOT  &kp FSLH  &kp APOS
+           &kp Q  &kp W  &kp E                     &kp R                   &kp T                 &kp Y               &kp U                    &kp I                      &kp O    &kp SEMICOLON
+           &kp A  &kp S  &HomerowL LEFT_CONTROL D  &HomerowL LEFT_SHIFT F  &kp G                 &kp H               &HomerowR RIGHT_SHIFT J  &HomerowR RIGHT_CONTROL K  &kp L    &kp P
+&kp MINUS  &kp Z  &kp X  &kp C                     &kp V                   &kp B                 &kp N               &kp M                    &kp COMMA                  &kp DOT  &kp FSLH       &kp APOS
                          &TapKHoldL 2 ESCAPE       &kp TAB                 &TapKHoldL 1 SPACE    &TapKHoldL 1 ENTER  &kp SPACE                &kp RIGHT_ALT
             >;
         };
@@ -126,10 +126,10 @@
 
         sym_func {
             bindings = <
-                  &kp ESC        &none           &mmv MOVE_UP    &none            &none        &none          &none     &none     &none  &kp ESCAPE
-                  &kp PAGE_UP    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none        &none          &mkp MB1  &mkp MB2  &none  &msc SCRL_UP
-&kp LEFT_CONTROL  &kp PAGE_DOWN  &none           &none           &none            &none        &none          &none     &none     &none  &msc SCRL_DOWN  &kp RIGHT_SHIFT
-                                                 &trans          &trans           &kp LCTRL    &kp BACKSPACE  &none     &none
+                  &kp PAGE_UP    &none           &mmv MOVE_UP        &none            &none        &none          &none     &none     &none  &msc SCRL_UP
+                  &kp PAGE_DOWN  &mmv MOVE_LEFT  &mmv MOVE_DOWN      &mmv MOVE_RIGHT  &none        &none          &mkp MB1  &mkp MB2  &none  &msc SCRL_DOWN
+&kp LEFT_CONTROL  &none          &none           &none               &none            &none        &none          &none     &none     &none  &none           &kp RIGHT_SHIFT
+                                                 &kp LA(LEFT_ARROW)  &none            &kp LCTRL    &kp BACKSPACE  &none     &none
             >;
         };
 

@@ -108,8 +108,8 @@
 
         base {
             bindings = <
-           &kp Q  &kp W  &kp E                     &kp R                   &kp T                 &kp Y               &kp U                    &kp I                      &kp O    &kp SEMICOLON
-           &kp A  &kp S  &HomerowL LEFT_CONTROL D  &HomerowL LEFT_SHIFT F  &kp G                 &kp H               &HomerowR RIGHT_SHIFT J  &HomerowR RIGHT_CONTROL K  &kp L    &kp P
+           &kp Q  &kp W  &kp E                     &kp R                   &kp T                 &kp Y               &kp U                    &kp I                      &kp O    &kp P
+           &kp A  &kp S  &HomerowL LEFT_CONTROL D  &HomerowL LEFT_SHIFT F  &kp G                 &kp H               &HomerowR RIGHT_SHIFT J  &HomerowR RIGHT_CONTROL K  &kp L    &kp SEMICOLON
 &kp MINUS  &kp Z  &kp X  &kp C                     &kp V                   &kp B                 &kp N               &kp M                    &kp COMMA                  &kp DOT  &kp FSLH       &kp APOS
                          &TapKHoldL 2 ESCAPE       &kp TAB                 &TapKHoldL 1 SPACE    &TapKHoldL 1 ENTER  &kp SPACE                &kp RIGHT_ALT
             >;
